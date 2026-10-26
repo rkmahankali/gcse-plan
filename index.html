@@ -27,8 +27,140 @@
 <header class="top"><div class="top-in"><a class="brand" href="index.html">Aikya · GCSE 2027</a><nav class="nav"><a href="index.html" aria-current="page">Home</a><a href="plan.html">The plan</a><a href="mocks.html">Mock exams</a><a href="maths.html">Maths bank</a><a href="english.html">English bank</a><a href="science.html">Science bank</a><a href="history.html">History bank</a><a href="pe-3d.html">PE &amp; 3D Design</a><a href="flashcards.html">Flashcards</a></nav></div></header>
 <section class="hero"><h1>Aikya's GCSE 2027 Grade 9 Plan</h1>
 <p>A chapter-by-chapter, paper-by-paper blueprint for Bulmershe School, Reading: what to study, the questions that come up most, how to answer them for full marks, mocks for a parent to run, and daily flashcards.</p>
-<div class="facts"><div class="fact"><b>9 subjects</b>Edexcel &amp; AQA</div><div class="fact"><b>11 May</b>first exam</div><div class="fact"><b>18 June</b>last exam</div><div class="fact"><b>83</b>mock sittings</div><div class="fact"><b>347</b>flashcards</div></div>
+<div class="facts"><div class="fact"><b>9 subjects</b>Edexcel &amp; AQA</div><a class="fact" href="#calendar" style="text-decoration:none;color:inherit"><b>11 May</b>first exam · <span id="hero-days">see countdown</span></a><div class="fact"><b>18 June</b>last exam</div><div class="fact"><b>83</b>mock sittings</div><div class="fact"><b>347</b>flashcards</div></div>
 </section>
+<style>
+:root{--s-maths:#2b5d9b;--s-eng:#8a3f8f;--s-sci:#2f7d4f;--s-his:#a5582a;--s-pe:#b03a48;--s-3d:#6b6f2a;--soon:#b5542b}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s-maths:#7fb0ec;--s-eng:#d39bd8;--s-sci:#6cc58f;--s-his:#e0a171;--s-pe:#ef8a95;--s-3d:#c3c776;--soon:#e38a62}}
+:root[data-theme="dark"]{--s-maths:#7fb0ec;--s-eng:#d39bd8;--s-sci:#6cc58f;--s-his:#e0a171;--s-pe:#ef8a95;--s-3d:#c3c776;--soon:#e38a62}
+.cal{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 0;display:flex;flex-direction:column;gap:18px}
+.cal h2{font-family:var(--display);font-size:1.6rem;margin:0}
+.cd-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cdn{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cdn.main{background:var(--accent);border-color:var(--accent);color:var(--sheet)}
+.cdn .lbl{text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;opacity:.8}
+.cdn .big{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,7vw,4rem);line-height:1;font-variant-numeric:tabular-nums}
+.cdn .big small{font-size:.35em;font-weight:400;margin-left:.2em}
+.cdn .sub{font-size:.95rem}
+.cdn .meta{font-size:.85rem;opacity:.85}
+.cdn .mid{font-family:var(--display);font-weight:600;font-size:2rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:99px;background:var(--th);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ok);width:0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend span::before,.ex .dot{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:baseline}
+.weeks{display:flex;flex-direction:column;gap:14px}
+.wk{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.wk-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:10px 16px;background:var(--th);font-size:.88rem}
+.wk-h b{font-family:var(--display);font-size:1rem}
+.wk-h span{color:var(--muted)}
+.ex{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:10px 16px;border-top:1px solid var(--rule)}
+.ex:first-of-type{border-top:0}
+.ex .d{font-variant-numeric:tabular-nums;line-height:1.2}
+.ex .d b{display:block;font-family:var(--display);font-size:1.05rem}
+.ex .d span{font-size:.8rem;color:var(--muted)}
+.ex .s{min-width:0}
+.ex .s b{font-weight:700}
+.ex .s .p{display:block;font-size:.88rem;color:var(--muted)}
+.ex .left{font-size:.85rem;font-weight:700;white-space:nowrap;padding:3px 10px;border-radius:99px;background:var(--th);font-variant-numeric:tabular-nums}
+.ex.soon .left{background:var(--soon);color:var(--sheet)}
+.ex.next{background:var(--accent-soft)}
+.ex.done{opacity:.55}
+.ex.done .left{background:transparent;color:var(--ok)}
+.ex.cw{border-left:4px solid var(--s-3d)}
+.calnote{font-size:.85rem;color:var(--muted);margin:0}
+@media (max-width:760px){.cd-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.cdn.main{grid-column:1/-1}}
+@media (max-width:440px){.ex{grid-template-columns:70px minmax(0,1fr)}.ex .left{grid-column:2;justify-self:start}}
+</style>
+<section class="cal" id="calendar" aria-labelledby="cal-h">
+  <h2 id="cal-h">Exam calendar and countdown</h2>
+  <div class="cd-row">
+    <div class="cdn main"><span class="lbl">Countdown to the first exam</span><span class="big" id="cd-first">–</span><span class="sub" id="cd-first-wk"></span><span class="meta" id="cd-first-what"></span></div>
+    <div class="cdn"><span class="lbl">Next paper</span><span class="mid" id="cd-next">–</span><span class="sub" id="cd-next-what"></span><span class="meta" id="cd-next-when"></span></div>
+    <div class="cdn"><span class="lbl">Last exam</span><span class="mid" id="cd-last">–</span><span class="sub" id="cd-last-what"></span><span class="meta"><span id="cd-done">0</span> of <span id="cd-total">0</span> papers sat</span><div class="bar" aria-hidden="true"><i id="cd-bar"></i></div></div>
+  </div>
+  <div class="legend" aria-label="Subject colours">
+    <span style="--c:var(--s-maths)">Maths</span><span style="--c:var(--s-eng)">English</span><span style="--c:var(--s-sci)">Sciences</span><span style="--c:var(--s-his)">History</span><span style="--c:var(--s-pe)">PE</span><span style="--c:var(--s-3d)">3D Design / coursework</span>
+  </div>
+  <div class="weeks" id="weeks"></div>
+  <p class="calnote">Dates from the published summer 2027 AQA and Edexcel timetables. Morning papers start at 09:00 and afternoon papers at 13:30; Bulmershe issues each student's personal timetable, which is the final word. Countdowns use UK time and update by themselves.</p>
+</section>
+<script>
+(function(){
+  var C={maths:'--s-maths',eng:'--s-eng',sci:'--s-sci',his:'--s-his',pe:'--s-pe','3d':'--s-3d'};
+  var EX=[
+    ['2027-05-11','am','sci','Biology','Paper 1 (topics 1–4)','1h 45m'],
+    ['2027-05-12','am','eng','English Literature','Paper 1: Shakespeare and Post-1914','1h 45m'],
+    ['2027-05-13','pm','pe','PE','Paper 1: Human body and movement','1h 15m'],
+    ['2027-05-14','am','maths','Maths','Paper 1: Non-calculator','1h 30m'],
+    ['2027-05-17','am','sci','Chemistry','Paper 1 (topics 1–5)','1h 45m'],
+    ['2027-05-19','','eng','English Literature','Paper 2: 19th-century novel and poetry','2h 15m'],
+    ['2027-05-20','am','his','History','Paper 1: Crime and Punishment + Whitechapel','1h 20m'],
+    ['2027-05-20','pm','pe','PE','Paper 2: Socio-cultural and well-being','1h 15m'],
+    ['2027-05-24','am','eng','English Language','Paper 1: Fiction and imaginative writing','1h 45m'],
+    ['2027-05-25','am','sci','Physics','Paper 1 (topics 1–4)','1h 45m'],
+    ['2027-05-27','am','maths','Maths','Paper 2: Calculator','1h 30m'],
+    ['2027-05-28','am','his','History','Paper 2: Cold War + Henry VIII','1h 50m'],
+    ['2027-05-31','cw','3d','3D Design','Portfolio + Externally Set Assignment submitted (deadline)','School sets dates'],
+    ['2027-05-31','cw','pe','PE practical','Practical (NEA) marks submitted (deadline)','School sets dates'],
+    ['2027-06-08','am','eng','English Language','Paper 2: Non-fiction and transactional writing','2h 05m'],
+    ['2027-06-09','pm','his','History','Paper 3: Weimar and Nazi Germany','1h 30m'],
+    ['2027-06-10','am','sci','Biology','Paper 2 (topics 5–7)','1h 45m'],
+    ['2027-06-14','am','maths','Maths','Paper 3: Calculator','1h 30m'],
+    ['2027-06-15','am','sci','Chemistry','Paper 2 (topics 6–10)','1h 45m'],
+    ['2027-06-18','','sci','Physics','Paper 2 (topics 5–8)','1h 45m']
+  ];
+  var DN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function ukToday(){ // calendar date in Europe/London as a UTC-midnight timestamp
+    try{var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()),o={};
+      p.forEach(function(x){o[x.type]=x.value});return Date.UTC(+o.year,+o.month-1,+o.day);}
+    catch(e){var d=new Date();return Date.UTC(d.getFullYear(),d.getMonth(),d.getDate());}
+  }
+  function ukHour(){try{return +new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()).replace(':','.')}catch(e){var d=new Date();return d.getHours()+d.getMinutes()/100}}
+  function dt(s){var a=s.split('-');return Date.UTC(+a[0],+a[1]-1,+a[2]);}
+  function days(s){return Math.round((dt(s)-ukToday())/864e5);}
+  function wkd(n){var w=Math.floor(n/7),d=n%7;return (w?w+(w===1?' week':' weeks'):'')+(w&&d?', ':'')+(d||!w?d+(d===1?' day':' days'):'');}
+  function fmt(s){var d=new Date(dt(s));return DN[d.getUTCDay()]+' '+d.getUTCDate()+' '+MN[d.getUTCMonth()];}
+  function time(sess){return sess==='am'?'09:00':sess==='pm'?'13:30':sess==='cw'?'Coursework':'Time TBC';}
+  function isDone(e){var n=days(e[0]);if(n<0)return true;if(n>0||e[1]==='cw')return false;var h=ukHour();return e[1]==='pm'?h>=16:h>=13;}
+  function render(){
+    var papers=EX.filter(function(e){return e[1]!=='cw'});
+    var first=papers[0],last=papers[papers.length-1];
+    var nf=days(first[0]);
+    var big=document.getElementById('cd-first');
+    if(nf>0){big.innerHTML=nf+'<small>days</small>';document.getElementById('cd-first-wk').textContent='That is '+wkd(nf)+' to go';}
+    else{big.textContent=nf===0?'Today':'Under way';document.getElementById('cd-first-wk').textContent=nf===0?'Good luck, Aikya!':'Exams started '+fmt(first[0]);}
+    var hd=document.getElementById('hero-days');if(hd)hd.textContent=nf>0?'in '+nf+' days':'under way';
+    document.getElementById('cd-first-what').textContent=first[3]+' '+first[4].split(' (')[0]+' · '+fmt(first[0])+' 2027, 09:00';
+    var next=papers.filter(function(e){return !isDone(e)})[0];
+    if(next){var nn=days(next[0]);document.getElementById('cd-next').textContent=nn===0?'Today':nn===1?'Tomorrow':nn+' days';
+      document.getElementById('cd-next-what').textContent=next[3]+' · '+next[4];
+      document.getElementById('cd-next-when').textContent=fmt(next[0])+', '+time(next[1])+(nn>13?' · '+wkd(nn):'');}
+    else{document.getElementById('cd-next').textContent='All done';document.getElementById('cd-next-what').textContent='Every paper has been sat. Well done!';}
+    var nl=days(last[0]);document.getElementById('cd-last').textContent=nl>0?nl+' days':nl===0?'Today':'Finished';
+    document.getElementById('cd-last-what').textContent=last[3]+' '+last[4].split(' (')[0]+' · '+fmt(last[0]);
+    var done=papers.filter(isDone).length;document.getElementById('cd-done').textContent=done;document.getElementById('cd-total').textContent=papers.length;
+    document.getElementById('cd-bar').style.width=(100*done/papers.length)+'%';
+    // weeks
+    var groups={},order=[];
+    EX.forEach(function(e){var d=new Date(dt(e[0])),mon=new Date(dt(e[0])-((d.getUTCDay()+6)%7)*864e5),k=mon.toISOString().slice(0,10);if(!groups[k]){groups[k]=[];order.push(k)}groups[k].push(e)});
+    var html='';
+    order.forEach(function(k,i){
+      var g=groups[k],n=days(g[0][0]),cnt=g.filter(function(e){return e[1]!=='cw'}).length;
+      html+='<div class="wk"><div class="wk-h"><b>Exam week '+(i+1)+' · w/c '+fmt(k)+'</b><span>'+cnt+(cnt===1?' paper':' papers')+(n>0?' · first paper in '+wkd(n):'')+'</span></div>';
+      g.forEach(function(e){
+        var nd=days(e[0]),dn=isDone(e),cls='ex'+(dn?' done':'')+(e===next?' next':'')+(!dn&&nd<=14?' soon':'')+(e[1]==='cw'?' cw':'');
+        var left=dn?'✓ Done':nd===0?'Today':nd===1?'Tomorrow':e[1]==='cw'?'Due in '+nd+' days':'In '+nd+' days';
+        html+='<div class="'+cls+'" style="--c:var('+C[e[2]]+')"><div class="d"><b>'+fmt(e[0]).replace(/^\w+ /,'')+'</b><span>'+fmt(e[0]).split(' ')[0]+' · '+time(e[1])+'</span></div>'+
+          '<div class="s"><span class="dot"></span><b>'+e[3]+'</b><span class="p">'+e[4]+' · '+e[5]+'</span></div><span class="left">'+left+'</span></div>';
+      });
+      html+='</div>';
+    });
+    document.getElementById('weeks').innerHTML=html;
+  }
+  render();setInterval(render,60000);
+})();
+</script>
+
 <main class="grid"><a class="card" href="plan.html"><span class="ct">The plan</span><span class="cd">Strategy, 2027 exam calendar, timeline, weekly routine, every subject chapter by chapter, how to answer, tracking.</span></a><a class="card" href="mocks.html"><span class="ct">Mock exams</span><span class="cd">Five rounds of dated mocks for every paper, the parent&#x27;s marking guide, readiness thresholds and results tracker.</span></a><a class="card" href="maths.html"><span class="ct">Maths bank</span><span class="cd">Edexcel 1MA1 Higher: frequent questions by topic with likelihood, full-marks methods, videos, topic papers and 23 worked answers.</span></a><a class="card" href="english.html"><span class="ct">English bank</span><span class="cd">Language and Literature: every question type, answer frames, themes to prepare and model full-mark answers.</span></a><a class="card" href="science.html"><span class="ct">Science bank</span><span class="cd">AQA Biology, Chemistry and Physics: frequent questions per topic, required practicals and 35 worked answers.</span></a><a class="card" href="history.html"><span class="ct">History bank</span><span class="cd">Edexcel 2025+ question formats, most-examined events per unit, and model answers for all three papers.</span></a><a class="card" href="pe-3d.html"><span class="ct">PE &amp; 3D Design</span><span class="cd">PE theory frequent questions with worked answers, and the 3D Design assessment-objective evidence checklist.</span></a><a class="card hl" href="flashcards.html"><span class="ct">Flashcards</span><span class="cd">347 chapter cards across eight subjects. Flip, mark Got it or Again; progress saves in the browser. Parent quiz list view and Anki/Quizlet export.</span></a></main>
 </body>
 </html>
